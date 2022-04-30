@@ -17,7 +17,8 @@ domReady(() => {
 	header.insertBefore(projectname, header.firstChild);
 
 	const testlink = document.querySelector('header > a[data-ice="testLink"]');
-	testlink.href = 'https://app.codecov.io/gh/comparison-searching/specification';
+	testlink.href =
+		'https://app.codecov.io/gh/comparison-searching/specification';
 	testlink.target = '_BLANK';
 
 	const searchBox = document.querySelector('.search-box');
