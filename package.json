@@ -1,7 +1,7 @@
 {
   "name": "@comparison-searching/specification",
   "description": "Comparison searching specification for JavaScript",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "AGPL-3.0",
   "author": "make-github-pseudonymous-again",
   "homepage": "https://comparison-searching.github.io/specification",
