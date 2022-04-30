@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | @comparison-searching/specification</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<link rel="stylesheet" href="./inject/css/0-style.css"><script src="./inject/script/0-header.js"></script><meta name="description" content="Comparison searching specification for JavaScript"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@comparison-searching/specification"><meta property="twitter:description" content="Comparison searching specification for JavaScript"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/comparison-searching/specification"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-increasing">increasing</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ARRAY">ARRAY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELTA">DELTA</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#search">search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-linearScan">linearScan</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-mag---a-href--https---comparison-searching-github-io-specification---comparison-searching-specification--a-">:mag: <a href="https://comparison-searching.github.io/specification">@comparison-searching/specification</a></h1><p>Comparison searching specification for JavaScript.
+See <a href="https://comparison-searching.github.io/specification/index.html">docs</a>.</p>
+<blockquote>
+<p>:building_construction: Caveat emptor! This is work in progress. Code may be
+working. Documentation may be present. Coherence may be. Maybe.</p>
+</blockquote>
+<blockquote>
+<p>:warning: Depending on your environment, the code may require
+<code>regeneratorRuntime</code> to be defined, for instance by importing
+<a href="https://www.npmjs.com/package/regenerator-runtime">regenerator-runtime/runtime</a>.</p>
+</blockquote>
+<p><a href="https://raw.githubusercontent.com/comparison-searching/specification/main/LICENSE"><img src="https://img.shields.io/github/license/comparison-searching/specification.svg" alt="License"></a>
+<a href="https://www.npmjs.org/package/@comparison-searching/specification"><img src="https://img.shields.io/npm/v/@comparison-searching/specification.svg" alt="Version"></a>
+<a href="https://github.com/comparison-searching/specification/actions/workflows/ci.yml?query=branch:main"><img src="https://img.shields.io/github/workflow/status/comparison-searching/specification/ci?event=push&amp;label=tests" alt="Tests"></a>
+<a href="https://github.com/comparison-searching/specification/network/dependencies"><img src="https://img.shields.io/librariesio/github/comparison-searching/specification.svg" alt="Dependencies"></a>
+<a href="https://github.com/comparison-searching/specification/issues"><img src="https://img.shields.io/github/issues/comparison-searching/specification.svg" alt="GitHub issues"></a>
+<a href="https://www.npmjs.org/package/@comparison-searching/specification"><img src="https://img.shields.io/npm/dm/@comparison-searching/specification.svg" alt="Downloads"></a></p>
+<p><a href="https://codeclimate.com/github/comparison-searching/specification/issues"><img src="https://img.shields.io/codeclimate/issues/comparison-searching/specification.svg" alt="Code issues"></a>
+<a href="https://codeclimate.com/github/comparison-searching/specification/trends/churn"><img src="https://img.shields.io/codeclimate/maintainability/comparison-searching/specification.svg" alt="Code maintainability"></a>
+<a href="https://codecov.io/gh/comparison-searching/specification"><img src="https://img.shields.io/codecov/c/gh/comparison-searching/specification/main.svg" alt="Code coverage (cov)"></a>
+<a href="https://codeclimate.com/github/comparison-searching/specification/trends/technical_debt"><img src="https://img.shields.io/codeclimate/tech-debt/comparison-searching/specification.svg" alt="Code technical debt"></a>
+<a href="https://comparison-searching.github.io/specification/source.html"><img src="https://comparison-searching.github.io/specification/badge.svg" alt="Documentation"></a>
+<a href="https://bundlephobia.com/result?p=@comparison-searching/specification"><img src="https://img.shields.io/bundlephobia/minzip/@comparison-searching/specification" alt="Package size"></a></p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

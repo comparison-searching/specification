@@ -1,0 +1,40 @@
+{
+  "coverage": "0%",
+  "expectCount": 9,
+  "actualCount": 0,
+  "files": {
+    "src/defaults.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        4,
+        6,
+        8
+      ]
+    },
+    "src/fixtures.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        20
+      ]
+    },
+    "src/search/linearScan.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/units.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    }
+  }
+}
