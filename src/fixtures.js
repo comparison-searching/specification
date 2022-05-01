@@ -41,7 +41,7 @@ export const arrayMinValue = (ctor) => {
 			return -(2 ** (ctor.BYTES_PER_ELEMENT * 8 - 1));
 
 		case BigInt64Array:
-			return -(2n ** 63n);
+			return -BigInt(2 ** 63);
 		default:
 			throw new Error(`unknown array constructor ${ctor}`);
 	}
@@ -60,7 +60,7 @@ export const arrayMaxValue = (ctor) => {
 			// eslint-disable-next-line no-bitwise
 			return (2 ** (ctor.BYTES_PER_ELEMENT * 8) - 1) >>> 0;
 		case BigUint64Array:
-			return 2n ** 64n - 1n;
+			return BigInt(2 ** 64) - 1n;
 		case Int8Array:
 		case Int16Array:
 		case Int32Array:
@@ -68,7 +68,7 @@ export const arrayMaxValue = (ctor) => {
 			return (2 ** (ctor.BYTES_PER_ELEMENT * 8 - 1) - 1) | 0;
 
 		case BigInt64Array:
-			return 2n ** 63n - 1n;
+			return BigInt(2 ** 63) - 1n;
 		default:
 			throw new Error(`unknown array constructor ${ctor}`);
 	}

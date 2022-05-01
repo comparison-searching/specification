@@ -4,10 +4,8 @@ import {macro, units, linearScan} from '#module';
 
 const seed = [123, 456];
 
-for (const unit of units({})) {
-	test(macro, {...unit, seed, search: linearScan});
-}
-
-for (const unit of units({length: [333]})) {
-	test(macro, {...unit, seed, search: linearScan});
+for (const options of [{}, {length: [333]}]) {
+	for (const unit of units(options)) {
+		test(macro, {...unit, seed, search: linearScan});
+	}
 }

@@ -5,6 +5,7 @@ import {
 	arrayMinValue,
 	pos as _pos,
 	found as _found,
+	arrayValue,
 } from './fixtures.js';
 
 const units = function* ({
@@ -17,9 +18,9 @@ const units = function* ({
 	found = _found,
 }) {
 	for (const [array, min] of product([arrays, mins])) {
-		if (min < arrayMinValue(array)) continue;
+		if (arrayValue(array, min) < arrayMinValue(array)) continue;
 		for (const max of maxs) {
-			if (max > arrayMaxValue(array)) continue;
+			if (arrayValue(array, max) > arrayMaxValue(array)) continue;
 			for (const [length, delta] of product([lengths, deltas])) {
 				yield {
 					array,
