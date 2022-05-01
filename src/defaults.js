@@ -1,5 +1,5 @@
-export const increasing = (a, b) => a - b;
-export const decreasing = (a, b) => b - a;
+export const increasing = (a, b) => Number(a - b);
+export const decreasing = (a, b) => Number(b - a);
 
 export const DELTA = [increasing, decreasing];
 
@@ -19,6 +19,6 @@ export const ARRAY = [
 	Uint32Array,
 	Float32Array,
 	Float64Array,
-	// BigInt64Array,
-	// BigUint64Array,
+	BigInt64Array,
+	BigUint64Array,
 ];

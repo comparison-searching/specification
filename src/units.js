@@ -13,8 +13,8 @@ const units = function* ({
 	delta: deltas = DELTA,
 	min: mins = MIN,
 	max: maxs = MAX,
-	pos = (_delta, _a, _i, _j, r) => _pos(r),
-	found = (_delta, _a, _i, _j, r) => _found(r),
+	pos = _pos,
+	found = _found,
 }) {
 	for (const [array, min] of product([arrays, mins])) {
 		if (min < arrayMinValue(array)) continue;

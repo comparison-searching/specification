@@ -73,3 +73,13 @@ export const arrayMaxValue = (ctor) => {
 			throw new Error(`unknown array constructor ${ctor}`);
 	}
 };
+
+export const arrayValue = (ctor, v) => {
+	switch (ctor) {
+		case BigInt64Array:
+		case BigUint64Array:
+			return BigInt(v);
+		default:
+			return v;
+	}
+};

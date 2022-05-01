@@ -1,5 +1,5 @@
 import {copy} from '@array-like/copy';
-import {entropy} from './fixtures.js';
+import {arrayValue, entropy} from './fixtures.js';
 import {increasing, decreasing} from './defaults.js';
 
 const macro = (
@@ -9,13 +9,12 @@ const macro = (
 	const {randint} = entropy(seed);
 	// SETUP REF ARRAY
 
-	let _max = max;
-	++_max;
-	let _min = min;
-	--_min;
+	const _max = arrayValue(array, max + 1);
+	const _min = arrayValue(array, min - 1);
 	// eslint-disable-next-line new-cap
 	const ref = new array(length);
-	for (let j = 0; j < length; ++j) ref[j] = randint(min, _max);
+	for (let j = 0; j < length; ++j)
+		ref[j] = arrayValue(array, randint(min, max + 1));
 	Array.prototype.sort.call(ref, delta);
 
 	// SETUP TEST ARRAY
@@ -28,25 +27,25 @@ const macro = (
 		// CHECK > OUTER BOUND
 		let v = delta(-1, 0) < 0 ? _max : _min;
 		let r = search(delta, a, 0, length, v);
-		t.false(found(delta, a, 0, length, r), `not found ${v}`);
-		t.is(pos(delta, a, 0, length, r), length, `where === ${length}`);
+		t.false(found(r), `not found ${v}`);
+		t.is(pos(r), length, `where === ${length}`);
 
 		// CHECK BODY
 		for (let i = length - 1; i >= 0; --i) {
 			r = search(delta, a, 0, length, a[i]);
-			t.true(found(delta, a, 0, length, r), `found  a[${i}]`);
-			t.deepEqual(a[pos(delta, a, 0, length, r)], a[i], `val  === ${a[i]}`);
+			t.true(found(r), `found  a[${i}]`);
+			t.deepEqual(a[pos(r)], a[i], `val  === ${a[i]}`);
 		}
 
 		// CHECK < OUTER BOUND
 		v = delta(-1, 0) > 0 ? _max : _min;
 		r = search(delta, a, 0, length, v);
-		t.false(found(delta, a, 0, length, r), 'not found -1');
-		t.is(pos(delta, a, 0, length, r), 0, 'where === 0');
+		t.false(found(r), 'not found -1');
+		t.is(pos(r), 0, 'where === 0');
 	} else {
-		const r = search(delta, a, 0, length, -1);
-		t.false(found(delta, a, 0, length, r), 'not found -1');
-		t.is(pos(delta, a, 0, length, r), 0, 'where === 0');
+		const r = search(delta, a, 0, length, _min);
+		t.false(found(r), 'not found -1');
+		t.is(pos(r), 0, 'where === 0');
 	}
 
 	// CHECK NOT MODIFIED
