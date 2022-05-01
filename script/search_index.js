@@ -18,15 +18,21 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@comparison-searching/specification/src/defaults.js~max",
+    "variable/index.html#static-variable-MAX",
+    "<span>MAX</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/defaults.js</span>",
+    "variable"
+  ],
+  [
+    "@comparison-searching/specification/src/defaults.js~min",
+    "variable/index.html#static-variable-MIN",
+    "<span>MIN</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/defaults.js</span>",
+    "variable"
+  ],
+  [
     "@comparison-searching/specification/src/defaults.js~decreasing",
     "function/index.html#static-function-decreasing",
     "<span>decreasing</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/defaults.js</span>",
-    "function"
-  ],
-  [
-    "@comparison-searching/specification/src/fixtures.js~entropy",
-    "function/index.html#static-function-entropy",
-    "<span>entropy</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/fixtures.js</span>",
     "function"
   ],
   [
@@ -42,9 +48,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@comparison-searching/specification/src/fixtures.js~pos",
-    "function/index.html#static-function-pos",
-    "<span>pos</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/fixtures.js</span>",
+    "@comparison-searching/specification/src/macro.js~macro",
+    "function/index.html#static-function-macro",
+    "<span>macro</span> <span class=\"search-result-import-path\">@comparison-searching/specification/src/macro.js</span>",
     "function"
   ],
   [
@@ -342,15 +348,15 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/fixtures.js",
-    "file/src/fixtures.js.html",
-    "src/fixtures.js",
-    "file"
-  ],
-  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
+    "file"
+  ],
+  [
+    "src/macro.js",
+    "file/src/macro.js.html",
+    "src/macro.js",
     "file"
   ],
   [

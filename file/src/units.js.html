@@ -31,39 +31,51 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-increasing">increasing</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ARRAY">ARRAY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELTA">DELTA</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MAX">MAX</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MIN">MIN</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#search">search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-linearScan">linearScan</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/units.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {ARRAY, LENGTH, DELTA} from &apos;./defaults.js&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {product} from &apos;@set-theory/cartesian-product&apos;;
+import {ARRAY, LENGTH, DELTA, MIN, MAX} from &apos;./defaults.js&apos;;
+import {
+	arrayMaxValue,
+	arrayMinValue,
+	pos as _pos,
+	found as _found,
+	arrayValue,
+} from &apos;./fixtures.js&apos;;
 
 const units = function* ({
 	array: arrays = ARRAY,
 	length: lengths = LENGTH,
 	delta: deltas = DELTA,
+	min: mins = MIN,
+	max: maxs = MAX,
+	pos = _pos,
+	found = _found,
 }) {
-	for (const array of arrays) {
-		for (const length of lengths) {
-			if (
-				array.BYTES_PER_ELEMENT &amp;&amp;
-				length &gt; 2 ** (array.BYTES_PER_ELEMENT * 8)
-			) {
-				continue;
-			}
-
-			for (const delta of deltas) {
+	for (const [array, min] of product([arrays, mins])) {
+		if (arrayValue(array, min) &lt; arrayMinValue(array)) continue;
+		for (const max of maxs) {
+			if (arrayValue(array, max) &gt; arrayMaxValue(array)) continue;
+			for (const [length, delta] of product([lengths, deltas])) {
 				yield {
 					array,
 					length,
 					delta,
+					min,
+					max,
+					pos,
+					found,
 				};
 			}
 		}

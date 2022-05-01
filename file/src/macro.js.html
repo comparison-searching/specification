@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/fixtures.js | @comparison-searching/specification</title>
+  <title data-ice="title">src/macro.js | @comparison-searching/specification</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -31,38 +31,107 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-increasing">increasing</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ARRAY">ARRAY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELTA">DELTA</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MAX">MAX</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MIN">MIN</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#search">search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-linearScan">linearScan</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/fixtures.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {_fisheryates, _shuffle, _randint} from &apos;@randomized/random&apos;;
-import {splitmix64, nextFloat64} from &apos;@entropy-source/pseudo-random&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/macro.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {copy} from &apos;@array-like/copy&apos;;
+import {arrayValue, entropy} from &apos;./fixtures.js&apos;;
+import {increasing, decreasing} from &apos;./defaults.js&apos;;
 
-export const entropy = (seed) =&gt; {
-	const prng = splitmix64(seed);
-	const random = () =&gt; nextFloat64(prng);
-	const randint = _randint(random);
-	const sample = _fisheryates(randint);
-	const shuffle = _shuffle(sample);
-	return {
-		prng,
-		random,
-		randint,
-		sample,
-		shuffle,
-	};
+const macro = (
+	t,
+	{search, array, length, delta, min, max, seed, pos, found},
+) =&gt; {
+	const {randint} = entropy(seed);
+	// SETUP REF ARRAY
+
+	const _max = arrayValue(array, max + 1);
+	const _min = arrayValue(array, min - 1);
+	// eslint-disable-next-line new-cap
+	const ref = new array(length);
+	for (let j = 0; j &lt; length; ++j)
+		ref[j] = arrayValue(array, randint(min, max + 1));
+	Array.prototype.sort.call(ref, delta);
+
+	// SETUP TEST ARRAY
+	// eslint-disable-next-line new-cap
+	const a = new array(length);
+	copy(ref, 0, length, a, 0);
+
+	// TEST SEARCH
+	if (length &gt; 0) {
+		// CHECK &gt; OUTER BOUND
+		let v = delta(-1, 0) &lt; 0 ? _max : _min;
+		let r = search(delta, a, 0, length, v);
+		t.false(found(r), `not found ${v}`);
+		t.is(pos(r), length, `where === ${length}`);
+
+		// CHECK BODY
+		for (let i = length - 1; i &gt;= 0; --i) {
+			r = search(delta, a, 0, length, a[i]);
+			t.true(found(r), `found  a[${i}]`);
+			t.deepEqual(a[pos(r)], a[i], `val  === ${a[i]}`);
+		}
+
+		// CHECK &lt; OUTER BOUND
+		v = delta(-1, 0) &gt; 0 ? _max : _min;
+		r = search(delta, a, 0, length, v);
+		t.false(found(r), &apos;not found -1&apos;);
+		t.is(pos(r), 0, &apos;where === 0&apos;);
+	} else {
+		const r = search(delta, a, 0, length, _min);
+		t.false(found(r), &apos;not found -1&apos;);
+		t.is(pos(r), 0, &apos;where === 0&apos;);
+	}
+
+	// CHECK NOT MODIFIED
+	t.deepEqual(a, ref, &apos;not modified check&apos;);
 };
 
-// eslint-disable-next-line no-bitwise
-export const pos = (v) =&gt; (v &gt;&gt; 31) ^ v;
+const deltaName = ({name, fn}) =&gt; {
+	switch (fn) {
+		case increasing:
+			return &apos;increasing&apos;;
+		case decreasing:
+			return &apos;decreasing&apos;;
+		default:
+			return name || &apos;&lt;unknown delta function&gt;&apos;;
+	}
+};
+
+const unpackFunction = (object) =&gt; {
+	if (typeof object === &apos;function&apos;) {
+		return {
+			name: object.name,
+			fn: object,
+		};
+	}
+
+	return object;
+};
+
+macro.title = (title, {search, array, length, delta, seed, min, max}) =&gt; {
+	if (title !== undefined) return title;
+	const {name: searchName} = unpackFunction(search);
+	const deltaUnpacked = unpackFunction(delta);
+	return `${searchName || &apos;&lt;unknown search function&gt;&apos;} (new ${
+		array.name
+	}(${length}){${min},${max}}${JSON.stringify(seed)}, ${deltaName(
+		deltaUnpacked,
+	)})`;
+};
+
+export default macro;
 </code></pre>
 
 </div>

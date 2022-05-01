@@ -31,12 +31,13 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-increasing">increasing</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ARRAY">ARRAY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELTA">DELTA</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MAX">MAX</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MIN">MIN</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#search">search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-linearScan">linearScan</a></span></span></li>
 </ul>
 </div>
@@ -62,34 +63,6 @@
           
           
           <span class="code" data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span><span class="code" data-ice="signature">(a: <span>*</span>, b: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span><span class="code" data-ice="signature">(seed: <span>*</span>): {&quot;prng&quot;: <span>*</span>, &quot;random&quot;: <span>*</span>, &quot;randint&quot;: <span>*</span>, &quot;sample&quot;: <span>*</span>, &quot;shuffle&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -173,7 +146,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span><span class="code" data-ice="signature">(v: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span><span class="code" data-ice="signature">(t: <span>*</span>, objectPattern1: {&quot;search&quot;: <span>*</span>, &quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;seed&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
         </p>
       </div>
       <div>
@@ -201,7 +174,7 @@
           
           
           <span data-ice="generator">*</span>
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>})</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
         </p>
       </div>
       <div>
@@ -269,77 +242,6 @@
 </div>
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-entropy">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">entropy</span><span class="code" data-ice="signature">(seed: <span>*</span>): {&quot;prng&quot;: <span>*</span>, &quot;random&quot;: <span>*</span>, &quot;randint&quot;: <span>*</span>, &quot;sample&quot;: <span>*</span>, &quot;shuffle&quot;: <span>*</span>}</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/fixtures.js.html#lineNumber4">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {entropy} from &apos;<span><a href="file/src/fixtures.js.html#lineNumber4">@comparison-searching/specification/src/fixtures.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">seed</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType">{&quot;prng&quot;: <span>*</span>, &quot;random&quot;: <span>*</span>, &quot;randint&quot;: <span>*</span>, &quot;sample&quot;: <span>*</span>, &quot;shuffle&quot;: <span>*</span>}</td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
 
   
 
@@ -517,22 +419,22 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-pos">
+  <h3 data-ice="anchor" id="static-function-macro">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">pos</span><span class="code" data-ice="signature">(v: <span>*</span>)</span>
+    <span class="code" data-ice="name">macro</span><span class="code" data-ice="signature">(t: <span>*</span>, objectPattern1: {&quot;search&quot;: <span>*</span>, &quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;seed&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/fixtures.js.html#lineNumber20">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/macro.js.html#lineNumber5">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {pos} from &apos;<span><a href="file/src/fixtures.js.html#lineNumber20">@comparison-searching/specification/src/fixtures.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import macro from &apos;<span><a href="file/src/macro.js.html#lineNumber5">@comparison-searching/specification/src/macro.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -548,9 +450,15 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">v</td>
+      <td data-ice="name" class="code" data-depth="0">t</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">objectPattern1</td>
+      <td data-ice="type" class="code">{&quot;search&quot;: <span>*</span>, &quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;seed&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>}</td>
+      <td data-ice="appendix"><ul><li>default: {&quot;search&quot;:null,&quot;array&quot;:null,&quot;length&quot;:null,&quot;delta&quot;:null,&quot;min&quot;:null,&quot;max&quot;:null,&quot;seed&quot;:null,&quot;pos&quot;:null,&quot;found&quot;:null}</li></ul></td>
       <td data-ice="description"></td>
     </tr>
 </tbody>
@@ -583,15 +491,15 @@
     
     
     <span data-ice="generator">*</span>
-    <span class="code" data-ice="name">units</span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>})</span>
+    <span class="code" data-ice="name">units</span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/units.js.html#lineNumber3">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/units.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import units from &apos;<span><a href="file/src/units.js.html#lineNumber3">@comparison-searching/specification/src/units.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import units from &apos;<span><a href="file/src/units.js.html#lineNumber11">@comparison-searching/specification/src/units.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -608,8 +516,8 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">objectPattern</td>
-      <td data-ice="type" class="code">{&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>}</td>
-      <td data-ice="appendix"><ul><li>default: {&quot;array&quot;:null,&quot;length&quot;:null,&quot;delta&quot;:null}</li></ul></td>
+      <td data-ice="type" class="code">{&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>}</td>
+      <td data-ice="appendix"><ul><li>default: {&quot;array&quot;:null,&quot;length&quot;:null,&quot;delta&quot;:null,&quot;min&quot;:null,&quot;max&quot;:null,&quot;pos&quot;:null,&quot;found&quot;:null}</li></ul></td>
       <td data-ice="description"></td>
     </tr>
 </tbody>

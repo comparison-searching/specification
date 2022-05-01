@@ -31,12 +31,13 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-decreasing">decreasing</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-increasing">increasing</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ARRAY">ARRAY</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELTA">DELTA</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MAX">MAX</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MIN">MIN</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#search">search</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-linearScan">linearScan</a></span></span></li>
 </ul>
 </div>
@@ -123,35 +124,7 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-entropy">entropy</a></span></span><span class="code" data-ice="signature">(seed: <span>*</span>): {&quot;prng&quot;: <span>*</span>, &quot;random&quot;: <span>*</span>, &quot;randint&quot;: <span>*</span>, &quot;sample&quot;: <span>*</span>, &quot;shuffle&quot;: <span>*</span>}</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-function">F</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-pos">pos</a></span></span><span class="code" data-ice="signature">(v: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-macro">macro</a></span></span><span class="code" data-ice="signature">(t: <span>*</span>, objectPattern1: {&quot;search&quot;: <span>*</span>, &quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;seed&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
         </p>
       </div>
       <div>
@@ -179,7 +152,7 @@
           <span data-ice="kind-icon" class="kind-function">F</span>
           
           <span data-ice="generator">*</span>
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>})</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-units">units</a></span></span><span class="code" data-ice="signature">(objectPattern: {&quot;array&quot;: <span>*</span>, &quot;length&quot;: <span>*</span>, &quot;delta&quot;: <span>*</span>, &quot;min&quot;: <span>*</span>, &quot;max&quot;: <span>*</span>, &quot;pos&quot;: <span>*</span>, &quot;found&quot;: <span>*</span>})</span>
         </p>
       </div>
       <div>
@@ -264,6 +237,62 @@
           
           
           <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-LENGTH">LENGTH</a></span></span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-MAX">MAX</a></span></span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-MIN">MIN</a></span></span><span class="code" data-ice="signature">: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span><span>[]</span></span></span>
         </p>
       </div>
       <div>
