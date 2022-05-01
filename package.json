@@ -70,6 +70,7 @@
     "@array-like/copy": "^0.0.1",
     "@entropy-source/pseudo-random": "^4.0.0",
     "@randomized/random": "^4.1.0",
+    "@set-theory/cartesian-product": "^2.0.2",
     "@total-order/primitive": "^1.0.1"
   },
   "devDependencies": {
