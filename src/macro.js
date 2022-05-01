@@ -4,11 +4,13 @@ import {increasing, decreasing} from './defaults.js';
 
 const macro = (
 	t,
-	{search, array, length, delta, min, max, seed, pos, found},
+	{search: _search, array, length, delta: _delta, min, max, seed, pos, found},
 ) => {
 	const {randint} = entropy(seed);
-	// SETUP REF ARRAY
+	const {fn: search} = unpackFunction(_search);
+	const {fn: delta} = unpackFunction(_delta);
 
+	// SETUP REF ARRAY
 	const _max = arrayValue(array, max + 1);
 	const _min = arrayValue(array, min - 1);
 	// eslint-disable-next-line new-cap
