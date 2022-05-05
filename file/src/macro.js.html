@@ -79,20 +79,36 @@ const macro = (
 		t.is(pos(r), length, `where === ${length}`);
 
 		// CHECK BODY
-		for (let i = length - 1; i &gt;= 0; --i) {
+		for (let i = 0; i &lt; length; ++i) {
 			r = search(delta, a, 0, length, a[i]);
 			t.true(found(r), `found  a[${i}]`);
 			t.deepEqual(a[pos(r)], a[i], `val  === ${a[i]}`);
 		}
 
+		// CHECK INNER MISS
+		for (let i = 1; i &lt; length; ++i) {
+			const values = new Set([
+				arrayValue(array, Number(a[i - 1]) + (delta(-1, 0) &lt; 0 ? 1 : -1)),
+				arrayValue(array, (Number(a[i - 1]) + Number(a[i])) / 2),
+				arrayValue(array, Number(a[i]) + (delta(-1, 0) &lt; 0 ? -1 : 1)),
+			]);
+			for (const v of values) {
+				if (delta(v, a[i - 1]) &lt;= 0) continue;
+				if (delta(v, a[i]) &gt;= 0) continue;
+				const r = search(delta, a, 0, length, v);
+				t.false(found(r), `not found ${v}`);
+				t.deepEqual(pos(r), i, `pos === ${i}`);
+			}
+		}
+
 		// CHECK &lt; OUTER BOUND
 		v = delta(-1, 0) &gt; 0 ? _max : _min;
 		r = search(delta, a, 0, length, v);
-		t.false(found(r), &apos;not found -1&apos;);
+		t.false(found(r), `not found ${v}`);
 		t.is(pos(r), 0, &apos;where === 0&apos;);
 	} else {
 		const r = search(delta, a, 0, length, _min);
-		t.false(found(r), &apos;not found -1&apos;);
+		t.false(found(r), `not found ${_min}`);
 		t.is(pos(r), 0, &apos;where === 0&apos;);
 	}
 
