@@ -78,7 +78,7 @@ export const arrayValue = (ctor, v) => {
 	switch (ctor) {
 		case BigInt64Array:
 		case BigUint64Array:
-			return BigInt(v);
+			return BigInt(Math.floor(v));
 		default:
 			return v;
 	}
