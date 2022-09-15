@@ -74,8 +74,8 @@
     "@total-order/primitive": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.19.0",
-    "@babel/preset-env": "7.19.0",
+    "@babel/core": "7.19.1",
+    "@babel/preset-env": "7.19.1",
     "@commitlint/cli": "17.1.2",
     "@js-library/commitlint-config": "0.0.4",
     "@node-loader/babel": "2.0.1",
