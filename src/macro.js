@@ -1,6 +1,7 @@
 import {copy} from '@array-like/copy';
-import {arrayValue, entropy} from './fixtures.js';
+
 import {increasing, decreasing} from './defaults.js';
+import {arrayValue, entropy} from './fixtures.js';
 
 const macro = (
 	t,
@@ -72,12 +73,17 @@ const macro = (
 
 const deltaName = ({name, fn}) => {
 	switch (fn) {
-		case increasing:
+		case increasing: {
 			return 'increasing';
-		case decreasing:
+		}
+
+		case decreasing: {
 			return 'decreasing';
-		default:
+		}
+
+		default: {
 			return name || '<unknown delta function>';
+		}
 	}
 };
 

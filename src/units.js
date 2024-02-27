@@ -1,4 +1,5 @@
 import {product} from '@set-theory/cartesian-product';
+
 import {ARRAY, LENGTH, DELTA, MIN, MAX} from './defaults.js';
 import {
 	arrayMaxValue,

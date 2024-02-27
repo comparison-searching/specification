@@ -1,5 +1,5 @@
-import {_fisheryates, _shuffle, _randint} from '@randomized/random';
 import {splitmix64, nextFloat64} from '@entropy-source/pseudo-random';
+import {_fisheryates, _shuffle, _randint} from '@randomized/random';
 
 export const entropy = (seed) => {
 	const prng = splitmix64(seed);
@@ -25,25 +25,35 @@ export const arrayMinValue = (ctor) => {
 	switch (ctor) {
 		case Array:
 		case Float32Array:
-		case Float64Array:
+		case Float64Array: {
 			return Number.NEGATIVE_INFINITY;
+		}
+
 		case Uint8Array:
 		case Uint8ClampedArray:
 		case Uint16Array:
-		case Uint32Array:
+		case Uint32Array: {
 			// eslint-disable-next-line no-bitwise
 			return 0 >>> 0;
-		case BigUint64Array:
+		}
+
+		case BigUint64Array: {
 			return 0n;
+		}
+
 		case Int8Array:
 		case Int16Array:
-		case Int32Array:
+		case Int32Array: {
 			return -(2 ** (ctor.BYTES_PER_ELEMENT * 8 - 1));
+		}
 
-		case BigInt64Array:
+		case BigInt64Array: {
 			return -BigInt(2 ** 63);
-		default:
+		}
+
+		default: {
 			throw new Error(`unknown array constructor ${ctor}`);
+		}
 	}
 };
 
@@ -51,35 +61,48 @@ export const arrayMaxValue = (ctor) => {
 	switch (ctor) {
 		case Array:
 		case Float32Array:
-		case Float64Array:
+		case Float64Array: {
 			return Number(Number.POSITIVE_INFINITY);
+		}
+
 		case Uint8Array:
 		case Uint8ClampedArray:
 		case Uint16Array:
-		case Uint32Array:
+		case Uint32Array: {
 			// eslint-disable-next-line no-bitwise
 			return (2 ** (ctor.BYTES_PER_ELEMENT * 8) - 1) >>> 0;
-		case BigUint64Array:
+		}
+
+		case BigUint64Array: {
 			return BigInt(2 ** 64) - 1n;
+		}
+
 		case Int8Array:
 		case Int16Array:
-		case Int32Array:
+		case Int32Array: {
 			// eslint-disable-next-line no-bitwise,unicorn/prefer-math-trunc
 			return (2 ** (ctor.BYTES_PER_ELEMENT * 8 - 1) - 1) | 0;
+		}
 
-		case BigInt64Array:
+		case BigInt64Array: {
 			return BigInt(2 ** 63) - 1n;
-		default:
+		}
+
+		default: {
 			throw new Error(`unknown array constructor ${ctor}`);
+		}
 	}
 };
 
 export const arrayValue = (ctor, v) => {
 	switch (ctor) {
 		case BigInt64Array:
-		case BigUint64Array:
+		case BigUint64Array: {
 			return BigInt(Math.floor(v));
-		default:
+		}
+
+		default: {
 			return v;
+		}
 	}
 };
