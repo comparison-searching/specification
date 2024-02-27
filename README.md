@@ -13,7 +13,7 @@ See [docs](https://comparison-searching.github.io/specification/index.html).
 
 [![License](https://img.shields.io/github/license/comparison-searching/specification.svg)](https://raw.githubusercontent.com/comparison-searching/specification/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@comparison-searching/specification.svg)](https://www.npmjs.org/package/@comparison-searching/specification)
-[![Tests](https://img.shields.io/github/workflow/status/comparison-searching/specification/ci?event=push&label=tests)](https://github.com/comparison-searching/specification/actions/workflows/ci.yml?query=branch:main)
+[![Tests](https://img.shields.io/github/actions/workflow/status/comparison-searching/specification/ci.yml?branch=main&event=push&label=tests)](https://github.com/comparison-searching/specification/actions/workflows/ci.yml?query=branch:main)
 [![Dependencies](https://img.shields.io/librariesio/github/comparison-searching/specification.svg)](https://github.com/comparison-searching/specification/network/dependencies)
 [![GitHub issues](https://img.shields.io/github/issues/comparison-searching/specification.svg)](https://github.com/comparison-searching/specification/issues)
 [![Downloads](https://img.shields.io/npm/dm/@comparison-searching/specification.svg)](https://www.npmjs.org/package/@comparison-searching/specification)
